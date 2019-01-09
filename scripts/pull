@@ -1,0 +1,15 @@
+while read p; do
+
+	if [ ${p:0:1} != '#' ]
+	then
+		cd $(echo $p | tr -d '\r')
+		echo
+		echo '--------------------------------------------------'
+		echo "$(echo $p)":
+		#echo `pwd`
+		git pull
+		cd ..
+	fi
+	
+done < working
+
